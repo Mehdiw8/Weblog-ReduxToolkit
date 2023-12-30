@@ -15,13 +15,7 @@ const CreateBlogForm = () => {
     e.preventDefault();
 
     if (title && content) {
-      dispatch(
-        blogAdded({ //payload ma hatman baid Yek Object bashad
-          id: nanoid(),
-          title,
-          content,
-        })
-      );
+      dispatch(blogAdded({ title, content })); //payload ma hatman baid Yek Object bashad
 
       setTitle("");
       setContent("");

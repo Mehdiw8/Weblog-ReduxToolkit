@@ -23,6 +23,7 @@ export const router = createBrowserRouter([
         path: "create-blog",
         element: <CreateBlogForm />,
       },
+     
     ],
   },
 ]);
