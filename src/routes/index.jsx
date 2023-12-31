@@ -4,6 +4,7 @@ import App from "../App";
 import NotFound from "../components/Not-Found";
 import SingelBlog from "../components/SingelBlog";
 import CreateBlogForm from "../components/CreateBlogForm";
+import EditBlog from "../components/EditBlog";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,10 @@ export const router = createBrowserRouter([
         path: "create-blog",
         element: <CreateBlogForm />,
       },
-     
+      {
+        path: "edit-blog/:blogId",
+        element: <EditBlog />,
+      },
     ],
   },
 ]);

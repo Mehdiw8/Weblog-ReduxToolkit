@@ -22,13 +22,12 @@ export const blogsSlice = createSlice({
   reducers: {
     //-------- hatman darone {} bashe hata agr yek khat bashe chon dare az Immer estefade mikone-----------
 
-    // blogAdded: (state,payload) => { // action creator || slicereducer ya reducer
+    // blogAdded: (state,action) => { // action creator || slicereducer ya reducer
     //   state.push(payload)
     // },
-
+    //-------------------------------------------------------- blogAdded ---------------------------------------------------
     blogAdded: {
       reducer(state, action) {
-        console.log(action);
         state.push(action.payload);
       },
 
@@ -44,11 +43,22 @@ export const blogsSlice = createSlice({
         };
       },
     },
+
+    //-------------------------------------------------------- blogUpdated ---------------------------------------------------
+
+    blogUpdated(state, action) {
+      const { id, title, content } = action.payload;
+      const targetBlog = state.find((blog) => blog.id === id);
+      if (targetBlog) {
+        targetBlog.title = title;
+        targetBlog.content = content;
+      }
+    },
   },
 });
 
 // ----- khude createSlice action ro braye ma misaze inja mishe {type :"blogs/increment"} -----
-export const { blogAdded } = blogsSlice.actions;
+export const { blogAdded, blogUpdated } = blogsSlice.actions;
 
 //----- reducer blogSlice ro export kardam chon store tavasot reducer sakhte mishe-----
 export default blogsSlice.reducer;
