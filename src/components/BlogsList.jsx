@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectAllBlogs } from "../lib/features/blogsSlice";
 const BlogsList = () => {
-  const blogs = useSelector((state) => state.blogs);
+  const blogs = useSelector((state) => selectAllBlogs(state));
 
   const blog = blogs.map((blog) => {
     return (
