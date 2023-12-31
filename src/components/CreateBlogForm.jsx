@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { blogAdded } from "../lib/features/blogsSlice";
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
 const CreateBlogForm = () => {
   const navigate = useNavigate();
 
@@ -15,15 +15,14 @@ const CreateBlogForm = () => {
     e.preventDefault();
 
     if (title && content) {
+      // dispatch(blogAdded({ id: nanoid(), title, content }));
       dispatch(blogAdded({ title, content })); //payload ma hatman baid Yek Object bashad
 
       setTitle("");
       setContent("");
     }
 
-    console.log(title);
-    console.log(content);
-    // navigate("/");
+    navigate("/");
   };
 
   return (
